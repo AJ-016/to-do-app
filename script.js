@@ -5,7 +5,10 @@ const list = document.getElementById("taskList");
 // load saved tasks when page opens
 window.onload = function(){
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    savedTasks.forEach(task => createTask(task));
+
+    savedTasks.forEach(task => {
+        createTask(task.text, task.completed);
+    });
 };
 
 button.addEventListener("click", function(){
@@ -19,11 +22,21 @@ button.addEventListener("click", function(){
     input.value = "";
 });
 
-function createTask(taskText){
+function createTask(taskText, completed = false){
+
     const li = document.createElement("li");
 
     const span = document.createElement("span");
     span.textContent = taskText;
+
+    if(completed){
+        span.classList.add("completed");
+    }
+
+    span.onclick = function(){
+        span.classList.toggle("completed");
+        saveTasks();
+    };
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
@@ -43,8 +56,15 @@ function createTask(taskText){
 // save tasks to localStorage
 function saveTasks(){
     const tasks = [];
-    document.querySelectorAll("li span").forEach(span => {
-        tasks.push(span.textContent);
+
+    document.querySelectorAll("#taskList li").forEach(li => {
+        const text = li.querySelector("span").textContent;
+        const completed = li.querySelector("span").classList.contains("completed");
+
+        tasks.push({
+            text: text,
+            completed: completed
+        });
     });
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
