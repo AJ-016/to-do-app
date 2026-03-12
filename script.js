@@ -6,13 +6,13 @@ button.addEventListener("click", function(){
 
     const taskText = input.value;
 
-    // prevent empty tasks
     if(taskText === "") return;
 
     const li = document.createElement("li");
-    li.textContent = taskText;
 
-    // create delete button
+    const span = document.createElement("span");
+    span.textContent = taskText;
+
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.classList.add("delete-btn");
@@ -21,6 +21,7 @@ button.addEventListener("click", function(){
         li.remove();
     };
 
+    li.appendChild(span);
     li.appendChild(deleteBtn);
 
     list.appendChild(li);
