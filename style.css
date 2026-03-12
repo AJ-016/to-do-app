@@ -178,6 +178,61 @@ body.light-mode {
   --button-hover: #45a049;
 }
 
-.filters button, #clearCompletedBtn, .delete-btn, .edit-btn {
-  /* Keep previous styling, works for both modes */
+
+
+/* MOBILE VIEW */
+@media (max-width: 480px) {
+
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .task-input {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #taskInput {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #addBtn {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  li {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    gap: 5px;
+  }
+
+  #clearCompletedBtn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #taskCounter {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  #modeToggle {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+  }
 }
