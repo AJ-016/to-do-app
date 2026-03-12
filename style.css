@@ -39,6 +39,25 @@ h1{
   background:#3d8f41;
 }
 
+.filters{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+}
+
+.filters button{
+  background:#333;
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:15px;
+  cursor:pointer;
+}
+
+.filters button:hover{
+  background:#555;
+}
+
 ul{
   margin-top:20px;
   padding:0;
@@ -49,7 +68,7 @@ li{
   background:#222;
   padding:10px;
   margin:10px 0;
-  width:300px;
+  width:320px;
   display:flex;
   align-items:center;
   gap:10px;
@@ -60,7 +79,11 @@ li span{
   flex:1;
   min-width:0;
   word-break:break-word;
-  overflow-wrap:break-word;
+}
+
+.completed{
+  text-decoration: line-through;
+  opacity:0.6;
 }
 
 .delete-btn{
@@ -70,14 +93,8 @@ li span{
   padding:6px 10px;
   border-radius:15px;
   cursor:pointer;
-  margin-left:10px;
 }
 
 .delete-btn:hover{
   background:#e60000;
-}
-
-.completed{
-  text-decoration: line-through;
-  opacity:0.5;
 }

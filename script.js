@@ -2,7 +2,11 @@ const input = document.getElementById("taskInput");
 const button = document.getElementById("addBtn");
 const list = document.getElementById("taskList");
 
-// load saved tasks when page opens
+const allBtn = document.getElementById("allBtn");
+const activeBtn = document.getElementById("activeBtn");
+const completedBtn = document.getElementById("completedBtn");
+
+// LOAD SAVED TASKS
 window.onload = function(){
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -11,22 +15,31 @@ window.onload = function(){
     });
 };
 
+// ADD TASK BUTTON
 button.addEventListener("click", function(){
     const taskText = input.value;
 
     if(taskText === "") return;
 
-    createTask(taskText);
+    createTask(taskText, false);
     saveTasks();
 
     input.value = "";
 });
 
+// ENTER KEY SUPPORT
+input.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        button.click();
+    }
+});
+
+// CREATE TASK FUNCTION
 function createTask(taskText, completed = false){
 
     const li = document.createElement("li");
 
-    // checkbox
+    // CHECKBOX
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = completed;
@@ -43,6 +56,7 @@ function createTask(taskText, completed = false){
         saveTasks();
     };
 
+    // DELETE BUTTON
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.classList.add("delete-btn");
@@ -59,25 +73,57 @@ function createTask(taskText, completed = false){
     list.appendChild(li);
 }
 
-// save tasks to localStorage
+// SAVE TASKS
 function saveTasks(){
+
     const tasks = [];
 
     document.querySelectorAll("#taskList li").forEach(li => {
+
         const text = li.querySelector("span").textContent;
-        const completed = li.querySelector("span").classList.contains("completed");
+        const completed = li.querySelector("input").checked;
 
         tasks.push({
             text: text,
             completed: completed
         });
+
     });
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-input.addEventListener("keypress", function(e){
-    if(e.key === "Enter"){
-        button.click();
-    }
-});
+// FILTER BUTTONS
+allBtn.onclick = function(){
+    filterTasks("all");
+};
+
+activeBtn.onclick = function(){
+    filterTasks("active");
+};
+
+completedBtn.onclick = function(){
+    filterTasks("completed");
+};
+
+function filterTasks(type){
+
+    document.querySelectorAll("#taskList li").forEach(li => {
+
+        const checkbox = li.querySelector("input");
+
+        if(type === "all"){
+            li.style.display = "flex";
+        }
+
+        if(type === "active"){
+            li.style.display = checkbox.checked ? "none" : "flex";
+        }
+
+        if(type === "completed"){
+            li.style.display = checkbox.checked ? "flex" : "none";
+        }
+
+    });
+
+}

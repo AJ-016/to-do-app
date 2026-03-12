@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>To-do App</title>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
 
-  <h1>My To-do List</h1>
+    <h1>My Todo List</h1>
+
     <div class="task-input">
-      <input id="taskInput" placeholder="Enter a task">
+      <input type="text" id="taskInput" placeholder="Enter a task">
       <button id="addBtn">Add</button>
     </div>
 
+    <div class="filters">
+      <button id="allBtn">All</button>
+      <button id="activeBtn">Active</button>
+      <button id="completedBtn">Completed</button>
+    </div>
+
     <ul id="taskList"></ul>
+
     <script src="script.js"></script>
+
   </body>
 </html>
