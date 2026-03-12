@@ -71,6 +71,20 @@ function createTask(taskText, completed = false){
         updateCounter();
     };
 
+    // EDIT BUTTON
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.classList.add("edit-btn");
+
+    editBtn.onclick = function(){
+    const newText = prompt("Edit your task:", span.textContent);
+    if(newText !== null && newText.trim() !== ""){
+        span.textContent = newText;
+        saveTasks();
+        }
+    };
+
+    li.appendChild(editBtn);
     li.appendChild(checkbox);
     li.appendChild(span);
     li.appendChild(deleteBtn);
