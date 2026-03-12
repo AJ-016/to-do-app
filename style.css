@@ -116,3 +116,17 @@ li span{
 .edit-btn:hover{
   background:#0056b3;
 }
+
+#clearCompletedBtn{
+  margin-top: 10px;
+  background:#ff9900;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:15px;
+  cursor:pointer;
+}
+
+#clearCompletedBtn:hover{
+  background:#e68a00;
+}

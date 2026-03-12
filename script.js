@@ -123,3 +123,15 @@ function updateCounter(){
         .filter(checkbox => !checkbox.checked).length;
     taskCounter.textContent = `${activeTasks} task${activeTasks !== 1 ? 's' : ''} left`;
 }
+
+//ADD CLICK LISTENER FOR CLEAR COMPLETED
+clearCompletedBtn.onclick = function(){
+    document.querySelectorAll("#taskList li").forEach(li => {
+        const checkbox = li.querySelector("input");
+        if(checkbox.checked){
+            li.remove();
+        }
+    });
+    saveTasks();
+    updateCounter();
+};
