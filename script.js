@@ -26,6 +26,11 @@ function createTask(taskText, completed = false){
 
     const li = document.createElement("li");
 
+    // checkbox
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = completed;
+
     const span = document.createElement("span");
     span.textContent = taskText;
 
@@ -33,7 +38,7 @@ function createTask(taskText, completed = false){
         span.classList.add("completed");
     }
 
-    span.onclick = function(){
+    checkbox.onchange = function(){
         span.classList.toggle("completed");
         saveTasks();
     };
@@ -47,6 +52,7 @@ function createTask(taskText, completed = false){
         saveTasks();
     };
 
+    li.appendChild(checkbox);
     li.appendChild(span);
     li.appendChild(deleteBtn);
 

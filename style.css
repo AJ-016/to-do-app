@@ -51,8 +51,8 @@ li{
   margin:10px 0;
   width:300px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  gap:10px;
   border-radius:6px;
 }
 
