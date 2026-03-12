@@ -15,6 +15,7 @@ button.addEventListener("click", function(){
     // create delete button
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("delete-btn");
 
     deleteBtn.onclick = function(){
         li.remove();

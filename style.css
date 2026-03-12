@@ -45,3 +45,16 @@ li{
   align-items:center;
   border-radius:6px;
 }
+
+.delete-btn{
+  background:#ff4d4d;
+  color:white;
+  border:none;
+  padding:6px 10px;
+  border-radius:15px;
+  cursor:pointer;
+}
+
+.delete-btn:hover{
+  background:#e60000;
+}
