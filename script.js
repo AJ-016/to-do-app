@@ -135,3 +135,29 @@ clearCompletedBtn.onclick = function(){
     saveTasks();
     updateCounter();
 };
+
+// DARK/LIGHT MODE TOGGLE
+const modeToggle = document.getElementById("modeToggle");
+
+// Load saved mode
+const savedMode = localStorage.getItem("mode");
+if(savedMode === "light"){
+    document.body.classList.add("light-mode");
+    modeToggle.textContent = "🌙 Dark Mode"; // if light, button should say "Dark Mode"
+} else {
+    document.body.classList.remove("light-mode");
+    modeToggle.textContent = "☀️ Light Mode"; // default dark mode, button says "Light Mode"
+}
+
+// Toggle mode on button click
+modeToggle.onclick = function(){
+    document.body.classList.toggle("light-mode");
+
+    if(document.body.classList.contains("light-mode")){
+        modeToggle.textContent = "🌙 Dark Mode"; // clicking now will switch to dark
+        localStorage.setItem("mode", "light");
+    } else {
+        modeToggle.textContent = "☀️ Light Mode"; // clicking now will switch to light
+        localStorage.setItem("mode", "dark");
+    }
+};
