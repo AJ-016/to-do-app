@@ -58,3 +58,29 @@ li{
 .delete-btn:hover{
   background:#e60000;
 }
+
+.task-input{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+}
+
+#taskInput{
+  padding:10px;
+  width:220px;
+  border-radius:15px;
+  border:none;
+  outline:none;
+}
+
+#addBtn{
+  background:#4CAF50;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  border-radius:18px;
+}
+
+#addBtn:hover{
+  background:#3d8f41;
+}
