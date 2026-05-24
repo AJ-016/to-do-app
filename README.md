@@ -10,7 +10,7 @@ A lightweight, local-first Progressive Web App (PWA) built to manage tasks effic
 
 ## Setup & Deployment
 * Local Development: Simply clone this repository and open index.html in your browser.
-* Live Demo: You can access the live version of this app here: [Insert your GitHub Pages link here].
+* Live Demo: You can access the live version of this app here: [Insert your GitHub Pages link here](https://aj-016.github.io/to-do-app/).
 * Deploy Your Own: Since this is a static site, you can host it for free on GitHub Pages by enabling it in your repository settings under the "Pages" tab.
 
 ## How to Use
